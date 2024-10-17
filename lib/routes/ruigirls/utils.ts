@@ -59,12 +59,30 @@ const ProcessTagItems = async (ctx, currentUrl) => {
             })
         )
     );
-
-    const htmlTitle = $('title').text();
-    const subject = htmlTitle.includes('|') ? htmlTitle.split('|')[0] : '';
+    if (items.length === 0) {
+        return {
+            title: '',
+            link: url.href,
+            item: [],
+        };
+    }
+    if (!items[0]) {
+        return {
+            title: '',
+            link: url.href,
+            item: [],
+        };
+    }
+    const source = items[0].title.match(/\[(.*?)\]/)?.[1] || '';
+    let author = '';
     result_items = result_items.filter((item) => item !== '');
+    if (typeof result_items[0] === 'object' && result_items[0] !== null) {
+        author = result_items[0].author;
+    }
+    const title = `${source} - ${author}`;
+
     return {
-        title: subject,
+        title,
         link: url.href,
         item: result_items,
     };
