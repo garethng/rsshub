@@ -62529,6 +62529,51 @@
       "name": "中国人民大学"
     }
   },
+  "ruigirls": {
+    "routes": {
+      "/tag/:tag?": {
+        "path": "/tag/:tag?",
+        "categories": [
+          "picture"
+        ],
+        "example": "/ruigirls/tag/",
+        "parameters": {
+          "tag": "标签"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "RUIGIRLS_SESSION",
+              "description": "ruigirls登陆后的session值，可在控制台的cookie下查找获取",
+              "optional": true
+            }
+          ],
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "ruigirlw.uk/"
+            ],
+            "target": "/tag"
+          }
+        ],
+        "name": "Tag",
+        "maintainers": [
+          "miffy"
+        ],
+        "url": "ruigirlw.uk/",
+        "description": "",
+        "location": "tag.ts"
+      }
+    },
+    "name": "瑞女郎",
+    "url": "ruigirlw.uk"
+  },
   "runtrail": {
     "routes": {
       "/": {

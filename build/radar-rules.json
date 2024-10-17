@@ -22463,6 +22463,19 @@
       }
     ]
   },
+  "ruigirlw.uk": {
+    "_name": "瑞女郎",
+    ".": [
+      {
+        "title": "Tag",
+        "docs": "https://docs.rsshub.app/routes/picture",
+        "source": [
+          "/"
+        ],
+        "target": "/ruigirls/tag"
+      }
+    ]
+  },
   "runtrail.cn": {
     "_name": "跑野大爆炸",
     ".": [
