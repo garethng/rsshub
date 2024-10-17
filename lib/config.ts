@@ -174,6 +174,9 @@ export type Config = {
     javdb: {
         session?: string;
     };
+    ruigirls: {
+        session?: string;
+    };
     keylol: {
         cookie?: string;
     };
@@ -565,6 +568,9 @@ const calculateValue = () => {
         },
         javdb: {
             session: envs.JAVDB_SESSION,
+        },
+        ruigirls: {
+            session: envs.RUIGIRLS_SESSION,
         },
         keylol: {
             cookie: envs.KEYLOL_COOKIE,
