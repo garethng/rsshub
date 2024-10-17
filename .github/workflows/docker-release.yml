@@ -65,7 +65,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ secrets.DOCKER_USERNAME }}/rsshub
+            ${{ secrets.DOCKER_USERNAME }}/garethwu-rsshub
             ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=latest,enable=true
@@ -96,7 +96,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ secrets.DOCKER_USERNAME }}/rsshub
+            ${{ secrets.DOCKER_USERNAME }}/garethwu-rsshub
             ghcr.io/${{ github.repository }}
           tags: |
             type=raw,value=chromium-bundled,enable=true
@@ -115,8 +115,8 @@ jobs:
           labels: ${{ steps.meta-chromium-bundled.outputs.labels }}
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           cache-from: |
-            type=registry,ref=${{ secrets.DOCKER_USERNAME }}/rsshub:chromium-bundled
-          cache-to: type=inline,ref=${{ secrets.DOCKER_USERNAME }}/rsshub:chromium-bundled  # inline cache is enough
+            type=registry,ref=${{ secrets.DOCKER_USERNAME }}/garethwu-rsshub:chromium-bundled
+          cache-to: type=inline,ref=${{ secrets.DOCKER_USERNAME }}/garethwu-rsshub:chromium-bundled  # inline cache is enough
 
       - name: Sign the published Docker image
         if: ${{ github.event_name != 'pull_request' }}
@@ -137,4 +137,4 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: ${{ secrets.DOCKER_USERNAME }}/rsshub
+          repository: ${{ secrets.DOCKER_USERNAME }}/garethwu-rsshub
