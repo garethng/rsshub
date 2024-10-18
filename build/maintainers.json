@@ -3377,6 +3377,9 @@
   "/inewsweek/:channel": [
     "changren-wcr"
   ],
+  "/infoq/presentations/:conference?": [
+    "nczitzk"
+  ],
   "/infoq/recommend": [
     "brilon"
   ],
@@ -4191,6 +4194,15 @@
   ],
   "/misskey/users/notes/:username": [
     "siygle"
+  ],
+  "/misskon/posts/:routeParams?": [
+    "Urabartin"
+  ],
+  "/misskon/tag/:tag": [
+    "Urabartin"
+  ],
+  "/misskon/top/:k": [
+    "Urabartin"
   ],
   "/mittrchina/:type?": [
     "EsuRt",
