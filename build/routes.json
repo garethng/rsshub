@@ -42934,6 +42934,42 @@
       "name": "毕马威"
     }
   },
+  "ktown4u": {
+    "routes": {
+      "/artistBrandlist/:grpNo/:grpNo2?": {
+        "path": "/artistBrandlist/:grpNo/:grpNo2?",
+        "categories": [
+          "shopping"
+        ],
+        "example": "/ktown4u/artistBrandlist/234590/1723449",
+        "parameters": {
+          "grpNo": "artist id (Get in url)",
+          "grpNo2": "product category id (Get in url), empty for all categories"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [],
+            "target": "/artistBrandlist/:grpNo/:grpNo2"
+          }
+        ],
+        "name": "Get the products on sale",
+        "maintainers": [
+          "JamesWDGu"
+        ],
+        "location": "artist-brandlist.ts"
+      }
+    },
+    "name": "Ktown4u",
+    "url": "ktown4u.com"
+  },
   "kuaidi100": {
     "routes": {
       "/track/:number/:id/:phone?": {
@@ -66895,6 +66931,160 @@
     "name": "Skeb",
     "url": "skeb.jp"
   },
+  "skebetter": {
+    "routes": {
+      "/illust/:type": {
+        "path": "/illust/:type",
+        "categories": [
+          "anime"
+        ],
+        "example": "/skebetter/illust/hot",
+        "parameters": {
+          "type": "Type, see below"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "Illust",
+        "maintainers": [
+          "SnowAgar25"
+        ],
+        "radar": [
+          {
+            "title": "Illust - Hot",
+            "source": [
+              "skebetter.com/illust"
+            ],
+            "target": "/illust/hot"
+          },
+          {
+            "title": "Illust - Week",
+            "source": [
+              "skebetter.com/illust"
+            ],
+            "target": "/illust/week"
+          },
+          {
+            "title": "Illust - Month",
+            "source": [
+              "skebetter.com/illust"
+            ],
+            "target": "/illust/month"
+          },
+          {
+            "title": "Illust - Latest",
+            "source": [
+              "skebetter.com/illust"
+            ],
+            "target": "/illust/latest"
+          }
+        ],
+        "description": "\n| 急上昇 | 週間 | 月間 | 新着 |\n| ----- | ---- | ---- | ---- |\n| hot | week | month| latest |",
+        "location": "illust.ts"
+      },
+      "/:type": {
+        "path": "/:type",
+        "categories": [
+          "anime"
+        ],
+        "example": "/skebetter/hot",
+        "parameters": {
+          "type": "Type, see below"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "Hot",
+        "maintainers": [
+          "SnowAgar25"
+        ],
+        "radar": [
+          {
+            "title": "Skebetter - Hot",
+            "source": [
+              "skebetter.com"
+            ],
+            "target": "/hot"
+          },
+          {
+            "title": "Skebetter - Week",
+            "source": [
+              "skebetter.com"
+            ],
+            "target": "/week"
+          },
+          {
+            "title": "Skebetter - Month",
+            "source": [
+              "skebetter.com"
+            ],
+            "target": "/month"
+          },
+          {
+            "title": "Skebetter - Latest",
+            "source": [
+              "skebetter.com"
+            ],
+            "target": "/latest"
+          }
+        ],
+        "description": "\n| 急上昇 | 週間 | 月間 | 新着 |\n| ----- | ---- | ---- | ---- |\n| hot | week | month| latest |",
+        "location": "index.ts"
+      },
+      "/manga/:order": {
+        "path": "/manga/:order",
+        "categories": [
+          "anime"
+        ],
+        "example": "/skebetter/manga/1",
+        "parameters": {
+          "order": "Order, see below."
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "Manga",
+        "maintainers": [
+          "SnowAgar25"
+        ],
+        "radar": [
+          {
+            "title": "Manga - Latest",
+            "source": [
+              "skebetter.com/series"
+            ],
+            "target": "/manga/1"
+          },
+          {
+            "title": "Manga - Hot",
+            "source": [
+              "skebetter.com/series"
+            ],
+            "target": "/manga/2"
+          }
+        ],
+        "description": "\n| 新着 (Latest) | 人気 (Hot) |\n| ---- | ---- |\n| 1    | 2    |",
+        "location": "manga.ts"
+      }
+    },
+    "name": "Skebetter",
+    "url": "skebetter.com"
+  },
   "sketis": {
     "routes": {
       "/isabelle-dev/blog/:blog": {
@@ -69694,6 +69884,52 @@
     },
     "name": "故事 FM",
     "url": "storyfm.cn"
+  },
+  "straitstimes": {
+    "routes": {
+      "/:category?/:section?": {
+        "path": "/:category?/:section?",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/straitstimes/singapore",
+        "parameters": {
+          "category": "Category, see below for more information",
+          "section": "Section, see below for more information"
+        },
+        "features": {
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "requireConfig": false
+        },
+        "name": "News",
+        "maintainers": [
+          "quiniapiezoelectricity"
+        ],
+        "description": "\n| Category               | `:category`               |\n| ---------------------- | --------------------------- |\n| Singapore              | `singapore`               |\n| Asia                   | `asia`                    |\n| World                  | `world`                   |\n| Opinion                | `opinion`                 |\n| Life                   | `life`                    |\n| Business               | `business`                |\n| Jobs                   | `jobs`                    |\n| Parenting & Education  | `parenting-and-education` |\n| Food                   | `food`                    |\n| Tech                   | `tech`                    |\n| Sport                  | `sport`                   |\n| Podcasts               | `podcasts`                |,\n\n| Section                | `:section`                |\n| ---------------------- | --------------------------- |\n| Top Stories            | `top-stories`             |\n| Latest                 | `latest`                  |",
+        "radar": [
+          {
+            "source": [
+              "www.straitstimes.com/:category"
+            ],
+            "target": "/:category"
+          },
+          {
+            "source": [
+              "www.straitstimes.com"
+            ],
+            "target": "/"
+          }
+        ],
+        "location": "index.ts"
+      }
+    },
+    "name": "The Strait Times",
+    "url": "straitstimes.com",
+    "description": ""
   },
   "stratechery": {
     "routes": {
@@ -78867,8 +79103,18 @@
           {
             "source": [
               "m.weibo.cn/u/:uid",
-              "m.weibo.cn/profile/:uid",
-              "weibo.com/u/:uid",
+              "m.weibo.cn/profile/:uid"
+            ],
+            "target": "/user/:uid"
+          },
+          {
+            "source": [
+              "weibo.com/u/:uid"
+            ],
+            "target": "/user/:uid"
+          },
+          {
+            "source": [
               "www.weibo.com/u/:uid"
             ],
             "target": "/user/:uid"
