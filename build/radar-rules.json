@@ -2693,6 +2693,14 @@
           "/hub/:topic"
         ],
         "target": "/apnews/topics/:topic"
+      },
+      {
+        "title": "Topics",
+        "docs": "https://docs.rsshub.app/routes/traditional-media",
+        "source": [
+          "/hub/:topic"
+        ],
+        "target": "/apnews/topics/:topic"
       }
     ]
   },
@@ -6192,7 +6200,8 @@
         "title": "期刊",
         "docs": "https://docs.rsshub.app/routes/journal",
         "source": [
-          "/knavi/journals/:name/detail"
+          "/knavi/journals/:name/detail",
+          "/kns/rss.aspx?Journal=:name&Virtual=knavi"
         ],
         "target": "/cnki/journals/:name"
       }
@@ -11416,6 +11425,19 @@
           "/redianzhuanti/118742/4122386/4122510/index.html"
         ],
         "target": "/gov/pbc/zcyj"
+      }
+    ]
+  },
+  "pudong.gov.cn": {
+    "_name": "上海市人民政府",
+    "www": [
+      {
+        "title": "政务公开-浦东新区",
+        "docs": "https://docs.rsshub.app/routes/government",
+        "source": [
+          "/zwgk/zxxxgk/index.html"
+        ],
+        "target": "/gov/pudong/zwgk"
       }
     ]
   },
@@ -20712,6 +20734,19 @@
       }
     ]
   },
+  "nudt.edu.cn": {
+    "_name": "中国人民解放军国防科技大学",
+    "yjszs": [
+      {
+        "title": "研究生院",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/"
+        ],
+        "target": "/nudt/yjszs/:keyId?"
+      }
+    ]
+  },
   "nuist.edu.cn": {
     "_name": "南京信息工程大学",
     "bulletin": [
@@ -26446,6 +26481,19 @@
       }
     ]
   },
+  "tkww.hk": {
+    "_name": "大公文匯網",
+    "www": [
+      {
+        "title": "新聞",
+        "docs": "https://docs.rsshub.app/routes/traditional-media",
+        "source": [
+          "/:column"
+        ],
+        "target": "/tkww/:column"
+      }
+    ]
+  },
   "tokeninsight.com": {
     "_name": "TokenInsight",
     ".": [
@@ -29147,6 +29195,26 @@
           "/:type/list.htm"
         ],
         "target": "/zjut/news/:type"
+      }
+    ],
+    "cs": [
+      {
+        "title": "浙江工业大学计算机科学与技术学院、软件学院",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/jsp/newsclass.jsp?wcId=:type"
+        ],
+        "target": "/zjut/cs/:type"
+      }
+    ],
+    "www.jwc": [
+      {
+        "title": "浙江工业大学教务处",
+        "docs": "https://docs.rsshub.app/routes/university",
+        "source": [
+          "/:type/list.htm"
+        ],
+        "target": "/zjut/jwc/:type"
       }
     ]
   },

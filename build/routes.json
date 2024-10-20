@@ -5998,7 +5998,51 @@
         "location": "sitemap.ts"
       },
       "/topics/:topic?": {
-        "path": "/topics/:topic?",
+        "path": [
+          "/topics/:topic?",
+          "/nav/:nav{.*}?"
+        ],
+        "categories": [
+          "traditional-media",
+          "popular"
+        ],
+        "example": "/apnews/topics/apf-topnews",
+        "view": 0,
+        "parameters": {
+          "topic": {
+            "description": "Topic name, can be found in URL. For example: the topic name of AP Top News [https://apnews.com/apf-topnews](https://apnews.com/apf-topnews) is `apf-topnews`",
+            "default": "trending-news"
+          }
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "apnews.com/hub/:topic"
+            ],
+            "target": "/topics/:topic"
+          }
+        ],
+        "name": "Topics",
+        "maintainers": [
+          "zoenglinghou",
+          "mjysci",
+          "TonyRL"
+        ],
+        "location": "topics.ts"
+      },
+      "/nav/:nav{.*}?": {
+        "path": [
+          "/topics/:topic?",
+          "/nav/:nav{.*}?"
+        ],
         "categories": [
           "traditional-media",
           "popular"
@@ -16493,14 +16537,16 @@
         "radar": [
           {
             "source": [
-              "navi.cnki.net/knavi/journals/:name/detail"
+              "navi.cnki.net/knavi/journals/:name/detail",
+              "rss.cnki.net/kns/rss.aspx?Journal=:name&Virtual=knavi"
             ]
           }
         ],
         "name": "期刊",
         "maintainers": [
           "Fatpandac",
-          "Derekmini"
+          "Derekmini",
+          "pseudoyu"
         ],
         "location": "journals.ts"
       }
@@ -16932,7 +16978,13 @@
           "dyhId": "看看号ID"
         },
         "features": {
-          "requireConfig": false,
+          "requireConfig": [
+            {
+              "name": "ALLOW_USER_HOTLINK_TEMPLATE",
+              "optional": true,
+              "description": "设置为`true`并添加`image_hotlink_template`参数来代理图片"
+            }
+          ],
           "requirePuppeteer": false,
           "antiCrawler": false,
           "supportBT": false,
@@ -16957,7 +17009,13 @@
           "period": "默认为`daily`"
         },
         "features": {
-          "requireConfig": false,
+          "requireConfig": [
+            {
+              "name": "ALLOW_USER_HOTLINK_TEMPLATE",
+              "optional": true,
+              "description": "设置为`true`并添加`image_hotlink_template`参数来代理图片"
+            }
+          ],
           "requirePuppeteer": false,
           "antiCrawler": false,
           "supportBT": false,
@@ -16981,7 +17039,13 @@
           "tag": "话题名称"
         },
         "features": {
-          "requireConfig": false,
+          "requireConfig": [
+            {
+              "name": "ALLOW_USER_HOTLINK_TEMPLATE",
+              "optional": true,
+              "description": "设置为`true`并添加`image_hotlink_template`参数来代理图片"
+            }
+          ],
           "requirePuppeteer": false,
           "antiCrawler": false,
           "supportBT": false,
@@ -17004,7 +17068,13 @@
           "type": "默认为history"
         },
         "features": {
-          "requireConfig": false,
+          "requireConfig": [
+            {
+              "name": "ALLOW_USER_HOTLINK_TEMPLATE",
+              "optional": true,
+              "description": "设置为`true`并添加`image_hotlink_template`参数来代理图片"
+            }
+          ],
           "requirePuppeteer": false,
           "antiCrawler": false,
           "supportBT": false,
@@ -17020,8 +17090,7 @@
       },
       "/tuwen/:type?": {
         "path": [
-          "/tuwen/:type?",
-          "/tuwen-xinxian"
+          "/tuwen/:type?"
         ],
         "categories": [
           "social-media"
@@ -17031,34 +17100,13 @@
           "type": "默认为hot"
         },
         "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "name": "图文",
-        "maintainers": [
-          "xizeyoupan"
-        ],
-        "description": "| 参数名称 | 编辑精选 | 最新   |\n  | -------- | -------- | ------ |\n  | type     | hot      | latest |",
-        "location": "tuwen.ts"
-      },
-      "/tuwen-xinxian": {
-        "path": [
-          "/tuwen/:type?",
-          "/tuwen-xinxian"
-        ],
-        "categories": [
-          "social-media"
-        ],
-        "example": "/coolapk/tuwen",
-        "parameters": {
-          "type": "默认为hot"
-        },
-        "features": {
-          "requireConfig": false,
+          "requireConfig": [
+            {
+              "name": "ALLOW_USER_HOTLINK_TEMPLATE",
+              "optional": true,
+              "description": "设置为`true`并添加`image_hotlink_template`参数来代理图片"
+            }
+          ],
           "requirePuppeteer": false,
           "antiCrawler": false,
           "supportBT": false,
@@ -17082,7 +17130,13 @@
           "uid": "在个人界面右上分享-复制链接获取"
         },
         "features": {
-          "requireConfig": false,
+          "requireConfig": [
+            {
+              "name": "ALLOW_USER_HOTLINK_TEMPLATE",
+              "optional": true,
+              "description": "设置为`true`并添加`image_hotlink_template`参数来代理图片"
+            }
+          ],
           "requirePuppeteer": false,
           "antiCrawler": false,
           "supportBT": false,
@@ -17097,7 +17151,8 @@
       }
     },
     "name": "酷安",
-    "url": "coolapk.com"
+    "url": "coolapk.com",
+    "description": "\n:::tip\n即日起，多数路由图片防盗链。   \n需要将 `ALLOW_USER_HOTLINK_TEMPLATE` 环境变量设置为 `true` ，然后配置`image_hotlink_template` 。   \n详见 [#16715](https://github.com/DIYgod/RSSHub/issues/16715)   \n:::"
   },
   "coomer": {
     "routes": {
@@ -21390,7 +21445,8 @@
       "/topic/:id/:sort?": {
         "path": "/topic/:id/:sort?",
         "categories": [
-          "social-media"
+          "social-media",
+          "popular"
         ],
         "example": "/douban/topic/48823",
         "parameters": {
@@ -21407,7 +21463,8 @@
         },
         "name": "话题",
         "maintainers": [
-          "LogicJake"
+          "LogicJake",
+          "pseudoyu"
         ],
         "location": "other/topic.ts"
       },
@@ -24015,7 +24072,8 @@
         },
         "name": "Timeline",
         "maintainers": [
-          "DIYgod"
+          "DIYgod",
+          "pseudoyu"
         ],
         "location": "timeline.ts"
       }
@@ -31591,6 +31649,34 @@
         ],
         "url": "pbc.gov.cn/redianzhuanti/118742/4122386/4122510/index.html",
         "location": "pbc/zcyj.ts"
+      },
+      "/pudong/zwgk": {
+        "path": "/pudong/zwgk",
+        "categories": [
+          "government"
+        ],
+        "example": "/gov/pudong/zwgk",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.pudong.gov.cn/zwgk/zxxxgk/index.html"
+            ],
+            "target": "/pudong/zwgk"
+          }
+        ],
+        "name": "政务公开-浦东新区",
+        "maintainers": [
+          "himingway"
+        ],
+        "location": "pudong/zwgk.ts"
       },
       "/safe/business/:site?": {
         "path": "/safe/business/:site?",
@@ -40041,7 +40127,11 @@
           }
         ],
         "name": "用户视频投稿",
-        "maintainers": [],
+        "maintainers": [
+          "FlashWingShadow",
+          "Fatpandac",
+          "pseudoyu"
+        ],
         "location": "user-video.ts"
       }
     },
@@ -54862,14 +54952,14 @@
   },
   "nudt": {
     "routes": {
-      "/yjszs/:type?": {
-        "path": "/yjszs/:type?",
+      "/yjszs/:keyId?": {
+        "path": "/yjszs/:keyId?",
         "categories": [
           "university"
         ],
-        "example": "/nudt/yjszs/sszs",
+        "example": "/nudt/yjszs/2",
         "parameters": {
-          "type": "分类，见下表，默认为硕士招生"
+          "keyId": "分类，见下表，默认为通知公告"
         },
         "features": {
           "requireConfig": false,
@@ -54879,12 +54969,19 @@
           "supportPodcast": false,
           "supportScihub": false
         },
+        "radar": [
+          {
+            "source": [
+              "yjszs.nudt.edu.cn"
+            ]
+          }
+        ],
         "name": "研究生院",
         "maintainers": [
           "Blank0120"
         ],
         "url": "yjszs.nudt.edu.cn/",
-        "description": "| 通知公告 | 硕士招生 |\n  | -------- | -------- |\n  | tzgg     | sszs     |",
+        "description": "| 通知公告 | 首页 | 招生简章 | 学校政策 | 硕士招生 | 博士招生 | 院所发文 | 数据统计 |\n  | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |\n  | 2     | 1     | 8     | 12     | 16     | 17     | 23     | 25     |",
         "location": "yjszs.ts"
       }
     },
@@ -62580,7 +62677,7 @@
         "maintainers": [
           "ttttmr"
         ],
-        "description": "Specify options (in the format of query string) in parameter `routeParams` parameter to extract data from JSON.\n\n| Key           | Meaning                                  | Accepted Values | Default                                    |\n| ------------- | ---------------------------------------- | --------------- | ------------------------------------------ |\n| `title`       | The title of the RSS                     | `string`        | Extracted from home page of current domain |\n| `item`        | The JSON Path as `item` element          | `string`        | Entire JSON response                       |\n| `itemTitle`   | The JSON Path as `title` in `item`       | `string`        | None                                       |\n| `itemLink`    | The JSON Path as `link` in `item`        | `string`        | None                                       |\n| `itemDesc`    | The JSON Path as `description` in `item` | `string`        | None                                       |\n| `itemPubDate` | The JSON Path as `pubDate` in `item`     | `string`        | None                                       |\n\n:::tip\nJSON Path only supports format like `a.b.c`. if you need to access arrays, like `a[0].b`, you can write it as `a.0.b`.\n:::\n\n  Parameters parsing in the above example:\n\n  | Parameter     | Value                                                                    |\n  | ------------- | ------------------------------------------------------------------------ |\n  | `url`         | `https://api.github.com/repos/ginuerzh/gost/releases`                    |\n  | `routeParams` | `title=Gost releases&itemTitle=tag_name&itemLink=html_url&itemDesc=body` |\n\n  Parsing of `routeParams` parameter:\n\n  | Parameter   | Value           |\n  | ----------- | --------------- |\n  | `title`     | `Gost releases` |\n  | `itemTitle` | `tag_name`      |\n  | `itemLink`  | `html_url`      |\n  | `itemDesc`  | `body`          |",
+        "description": "Specify options (in the format of query string) in parameter `routeParams` parameter to extract data from JSON.\n\n| Key                | Meaning                                      | Accepted Values   | Default                                    |\n| ------------------ | -------------------------------------------- | ----------------- | ------------------------------------------ |\n| `title`          | The title of the RSS                         | `string`        | Extracted from home page of current domain |\n| `item`           | The JSON Path as `item` element            | `string`        | Entire JSON response                       |\n| `itemTitle`      | The JSON Path as `title` in `item`       | `string`        | None                                       |\n| `itemLink`       | The JSON Path as `link` in `item`        | `string`        | None                                       |\n| `itemLinkPrefix` | Optional Prefix for `itemLink` value       | `string`        | None                                       |\n| `itemDesc`       | The JSON Path as `description` in `item` | `string`        | None                                       |\n| `itemPubDate`    | The JSON Path as `pubDate` in `item`     | `string`        | None                                       |\n\n:::tip\nJSON Path only supports format like `a.b.c`. if you need to access arrays, like `a[0].b`, you can write it as `a.0.b`.\n:::\n\n  Parameters parsing in the above example:\n\n  | Parameter     | Value                                                                    |\n  | ------------- | ------------------------------------------------------------------------ |\n  | `url`         | `https://api.github.com/repos/ginuerzh/gost/releases`                    |\n  | `routeParams` | `title=Gost releases&itemTitle=tag_name&itemLink=html_url&itemDesc=body` |\n\n  Parsing of `routeParams` parameter:\n\n  | Parameter   | Value           |\n  | ----------- | --------------- |\n  | `title`     | `Gost releases` |\n  | `itemTitle` | `tag_name`      |\n  | `itemLink`  | `html_url`      |\n  | `itemDesc`  | `body`          |",
         "location": "transform/json.ts"
       },
       "/transform/sitemap/:url/:routeParams?": {
@@ -73958,6 +74055,43 @@
     "name": "Tianjin University 天津大学",
     "url": "cic.tju.edu.cn"
   },
+  "tkww": {
+    "routes": {
+      "/:column{.+}?": {
+        "path": "/:column{.+}?",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/tkww/hong_kong",
+        "parameters": {
+          "column": "欄目，默認為 home (首頁)"
+        },
+        "features": {
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "新聞",
+        "maintainers": [
+          "quiniapiezoelectricity"
+        ],
+        "radar": [
+          {
+            "source": [
+              "www.tkww.hk/:column"
+            ],
+            "target": "/:column"
+          }
+        ],
+        "description": "\n:::tip\n欄目可用`名稱`或對應網頁的`path`，\n如 `https://www.tkww.hk/hong_kong` 的欄目可以填`香港`或是`hong_kong`\n而 `https://www.tkww.hk/china/shanghai` 的欄目則需填`china/shanghai`\n:::",
+        "location": "index.ts"
+      }
+    },
+    "name": "大公文匯網",
+    "url": "www.tkww.hk"
+  },
   "tokeninsight": {
     "routes": {
       "/blog/:lang?": {
@@ -80643,7 +80777,7 @@
         ],
         "example": "/xaut/index/tzgg",
         "parameters": {
-          "category": "通知类别，默认为通知公告"
+          "category": "通知类别，默认为学校新闻"
         },
         "features": {
           "requireConfig": false,
@@ -80657,7 +80791,7 @@
         "maintainers": [
           "mocusez"
         ],
-        "description": "| 通知公告 | 校园要闻 | 媒体播报 | 学术活动 |\n  | :------: | :------: | :------: | :------: |\n  |   tzgg   |   xyyw   |   mtbd   |   xshd   |",
+        "description": "| 学校新闻 | 砥志研思 | 立德树人 | 传道授业 | 校闻周知 |\n  | :------: | :------: | :------: | :------: | :------: |\n  |   xxxw   |   dzys   |   ldsr   |   cdsy   |   xwzz   |",
         "location": "index.ts"
       },
       "/jwc/:category?": {
@@ -80711,7 +80845,7 @@
       }
     },
     "name": "西安理工大学",
-    "url": "index.xaut.edu.cn"
+    "url": "www.xaut.edu.cn"
   },
   "xbookcn": {
     "routes": {
@@ -85576,6 +85710,39 @@
         "description": "| 图片新闻 | 工大要闻 | 综合新闻 | 学术・探索 | 三创・人物 | 智库工大 | 美誉工大 | 葵园融媒 |\n| -------- | -------- | -------- | ---------- | ---------- | -------- | -------- | -------- |\n| 5414     | 5415     | 5416     | 5422       | 5423       | 5424     | 5425     | 5419     |",
         "location": "news.ts"
       },
+      "/cs/:type": {
+        "path": "/cs/:type",
+        "categories": [
+          "university"
+        ],
+        "example": "/zjut/cs/54",
+        "parameters": {
+          "type": "分类，见下表"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "浙江工业大学计算机科学与技术学院、软件学院",
+        "maintainers": [
+          "zhullyb"
+        ],
+        "url": "cs.zjut.edu.cn",
+        "radar": [
+          {
+            "source": [
+              "cs.zjut.edu.cn/jsp/newsclass.jsp?wcId=:type"
+            ],
+            "target": "/cs/:type"
+          }
+        ],
+        "description": "| 新闻资讯 | 学术动态 | 通知公告 |\n| ------- | ------- | ------- |\n| 54      | 55      | 53      |",
+        "location": "cs/index.ts"
+      },
       "/da/:type": {
         "path": "/da/:type",
         "categories": [
@@ -85600,6 +85767,39 @@
         "url": "www.design.zjut.edu.cn",
         "description": "| 学院新闻 | 公告通知 | 科研申报 | 科研成果 | 文件与资源 | 学术交流 |\n| -------- | -------- | -------- | -------- | -------- | -------- |\n| 1        | 2        | 3        | 4        | 5        | 6        |",
         "location": "da/index.ts"
+      },
+      "/jwc/:type": {
+        "path": "/jwc/:type",
+        "categories": [
+          "university"
+        ],
+        "example": "/zjut/jwc/1839",
+        "parameters": {
+          "type": "分类，见下表"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "浙江工业大学教务处",
+        "maintainers": [
+          "zhullyb"
+        ],
+        "url": "www.jwc.zjut.edu.cn",
+        "radar": [
+          {
+            "source": [
+              "www.jwc.zjut.edu.cn/:type/list.htm"
+            ],
+            "target": "/jwc/:type"
+          }
+        ],
+        "description": "| 板块 | 参数 |\n| ------- | ------- |\n| 新闻动态 | 1838 |\n| 课程思政 | 1842 |\n| 校内动态 | 2613 |\n| 学习思考 | 2614 |\n| 成果展示 | 2615 |\n| 媒体聚焦 | 2616 |\n| 制度文件 | 2617 |\n| 教学运行 | 1849 |\n| 实践竞赛 | 1850 |\n| 留学生Notice | 1851 |\n| 项目申报 | 1852 |\n| 学籍管理 | 1853 |\n| 办事指南 | 1839 |",
+        "location": "jwc/index.ts"
       }
     },
     "name": "浙江工业大学",
